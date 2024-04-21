@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Hofer KG",
+    "url": "https://www.hofer.at",
+    "uids": ["ATU78172745", "ATU42620008"],
+    "certIds": []
+  },
+  {
+    "name": "Media Saturn",
+    "url": "https://www.mediamarkt.at",
+    "uids": ["ATU19417101"],
+    "certIds": []
+  },
+  {
+    "name": "Rewe International",
+    "url": "https://rewe-group.at",
+    "uids": ["ATU59193205"],
+    "certIds": []
+  },
+  {
+    "name": "McDonald's, Eckwolf GmbH",
+    "publicName": "McDonald's",
+    "url": "https://www.mcdonalds.at/",
+    "uids": ["ATU42620008"],
+    "certIds": []
+  },
+  {
+    "name": "McDonald's Franchise GmbH",
+    "publicName": "McDonald's",
+    "url": "https://www.mcdonalds.at/",
+    "uids": ["ATU36975500"],
+    "certIds": []
+  },
+  {
+    "name": "BS Leberkas-GmbH",
+    "publicName": "Leberkas-Pepi",
+    "url": "https://www.leberkaspepi.at/",
+    "uids": ["ATU69555359"],
+    "certIds": ["761EF806", "4355E3F1"]
+  },
+  {
+    "name": "Müller Handels GmbH",
+    "url": "https://www.mueller.at",
+    "uids": ["DE282904255"],
+    "certIds": ["1b017d82"]
+  },
+  {
+    "name": "Lidl Österreich GmbH",
+    "url": "https://www.lidl.at/",
+    "uids": ["ATU37893801"],
+    "certIds": ["01481d93b9597c"]
+  },
+  {
+    "name": "HORNBACH Baumarkt GmbH",
+    "url": "https://www.hornbach.at/",
+    "uids": ["ATU40181209"],
+    "certIds": [""]
+  },
+  {
+    "name": "Le Crobag Österreich",
+    "url": "https://www.lecrobag.de/",
+    "uids": ["ATU62549647"],
+    "certIds": ["1c7b398bfdab4"]
+  },
+  {
+    "name": "ÖNCÜ DÖNER Gastro GmbH",
+    "url": "https://www.oencuedoener.at/",
+    "uids": [""],
+    "certIds": ["1D511546"]
+  },
+  {
+  "name": "MaMa's Boys GmbH",
+    "publicName": "Wrapstars",
+    "url": "https://www.wrapstars.at/",
+    "uids": [""],
+    "certIds": ["222a17c3"]
+  },
+  {
+    "name": "Weishuber & Hofer OG",
+    "publicName": "XO Grill",
+    "url": "https://www.xo-grill.at/",
+    "uids": ["ATU70624504"],
+    "certIds": ["2d7e899b"]
+  }
+]

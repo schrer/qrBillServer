@@ -54,7 +54,7 @@
     "name": "HORNBACH Baumarkt GmbH",
     "url": "https://www.hornbach.at/",
     "uids": ["ATU40181209"],
-    "certIds": [""]
+    "certIds": ["2b7da6b409d5"]
   },
   {
     "name": "Le Crobag Österreich",
@@ -81,5 +81,53 @@
     "url": "https://www.xo-grill.at/",
     "uids": ["ATU70624504"],
     "certIds": ["2d7e899b"]
+  },
+  {
+    "name": "Chen EBI Holding GmbH",
+    "publicName": "Ebi Vienna",
+    "url": "https://www.ebi-vienna.at",
+    "uids": ["ATU72320534"],
+    "certIds": ["71d5f74c"]
+  },
+  {
+    "name": "Haus des Meeres Betriebs GmbH",
+    "publicName": "Haus des Meeres",
+    "url": "https://www.haus-des-meeres.at",
+    "uids": ["ATU63511603"],
+    "certIds": ["20c09399862f6ae3"]
+  },
+  {
+    "name": "Weltmuseum Wien",
+    "url": "https://www.weltmuseumwien.at",
+    "uids": [""],
+    "certIds": ["2A38C2E5"]
+  },
+  {
+    "name": "Pizza Favori GmbH",
+    "publicName": "Pizza Favori",
+    "url": "https://pizza-favori.at/",
+    "uids": ["ATU75797568"],
+    "certIds": ["54149bce"]
+  },
+  {
+    "name": "KBS Kleider Bauer Betriebs-GmbH",
+    "publicName": "Kleider Bauer",
+    "url": "https://kleiderbauer.at/",
+    "uids": ["ATU49491107"],
+    "certIds": ["4e73db60"]
+  },
+  {
+    "name": "OBI Bau- und Heimwerkermärkte Systemzentrale GmbH",
+    "publicName": "OBI",
+    "url": "https://www.obi.at",
+    "uids": ["ATU39090504"],
+    "certIds": ["1eda56d2"]
+  },
+  {
+    "name": "OMV Downstream GmbH",
+    "publicName": "OMV",
+    "url": "https://www.omv.at",
+    "uids": ["ATU48359903"],
+    "certIds": ["208D115D"]
   }
 ]

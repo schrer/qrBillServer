@@ -5,13 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("")
+@RequestMapping
 public class BaseController {
-
-    @GetMapping
-    public String indexNoSlash() {
-        return index();
-    }
 
     @GetMapping("/")
     public String index() {

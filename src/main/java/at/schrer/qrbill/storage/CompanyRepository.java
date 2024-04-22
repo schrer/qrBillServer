@@ -19,25 +19,25 @@ public class CompanyRepository {
     private static final String FIELD_CERT_IDS = "certIds";
     private static final String FIELD_UIDS = "uids";
 
-    private final ObjectRepository<CompanyData> companyNitriteRepos;
+    private final ObjectRepository<CompanyData> companyNitriteRepo;
 
-    public CompanyRepository(ObjectRepository<CompanyData> companyNitriteRepos,
+    public CompanyRepository(ObjectRepository<CompanyData> companyNitriteRepo,
                              @Value("classpath:static/companyMappings.json") Resource companyFile) throws IOException {
-        this.companyNitriteRepos = companyNitriteRepos;
+        this.companyNitriteRepo = companyNitriteRepo;
         initLoad(companyFile);
     }
 
     public void storeCompany(CompanyData company) {
-        companyNitriteRepos.insert(company);
+        companyNitriteRepo.insert(company);
     }
 
     public CompanyData getByCertId(String certId) {
-        return companyNitriteRepos.find(where(FIELD_CERT_IDS).elemMatch($.eq(certId)))
+        return companyNitriteRepo.find(where(FIELD_CERT_IDS).elemMatch($.eq(certId)))
                 .firstOrNull();
     }
 
     public CompanyData getByUid(String uid) {
-        return companyNitriteRepos.find(where(FIELD_UIDS).elemMatch($.eq(uid)))
+        return companyNitriteRepo.find(where(FIELD_UIDS).elemMatch($.eq(uid)))
                 .firstOrNull();
     }
 

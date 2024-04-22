@@ -2,6 +2,7 @@ package at.schrer.qrbill.config;
 
 import at.schrer.qrbill.data.store.CompanyData;
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.collection.NitriteCollection;
 import org.dizitart.no2.common.mapper.JacksonMapperModule;
 import org.dizitart.no2.repository.ObjectRepository;
 import org.springframework.context.annotation.Bean;
@@ -22,5 +23,10 @@ public class NitriteConfig {
         ObjectRepository<CompanyData> companyRepository = nitrite.getRepository(CompanyData.class, "companies");
         companyRepository.createIndex("certIds");
         return companyRepository;
+    }
+
+    @Bean
+    public NitriteCollection applicationDataRepo(Nitrite nitrite) {
+        return nitrite.getCollection("applicationData");
     }
 }

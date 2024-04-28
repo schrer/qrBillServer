@@ -14,17 +14,27 @@ public class StatsService {
     public StatsService(ApplicationDataRepository applicationDataRepository) {
         this.applicationDataRepository = applicationDataRepository;
         StatsData stats = applicationDataRepository.getStats();
-        this.counter = new AtomicStatsCounter(stats.getUniqueAccesses(), stats.getTotalAccesses());
+        this.counter = new AtomicStatsCounter(stats.getUniqueAccesses(), stats.getTotalAccesses(), stats.getCompanyInfoRequests());
     }
 
     public void addFirstTimeAccess() {
         counter.incrementForFirstAccess();
-        applicationDataRepository.storeStats(
-                new StatsData(counter.getUniqueAccesses(), counter.getTotalAccesses()));
+        storeStats();
     }
 
     public void addReturningAccess() {
         counter.incrementNonUnique();
+        storeStats();
+    }
+
+    public void addCompanyInfoRequest() {
+        counter.incrementCompanyInfoRequests();
+        storeStats();
+    }
+
+    public void addCompanyInfoRequests(long amount) {
+        counter.incrementCompanyInfoRequestsBy(amount);
+        storeStats();
     }
 
     public long getUniqueAccesses() {
@@ -35,13 +45,24 @@ public class StatsService {
         return counter.getTotalAccesses();
     }
 
+    private void storeStats() {
+        StatsData stats = new StatsData(
+                counter.getUniqueAccesses(),
+                counter.getTotalAccesses(),
+                counter.getTotalCompanyInfoRequests()
+        );
+        applicationDataRepository.storeStats(stats);
+    }
+
     private static class AtomicStatsCounter {
         private final AtomicLong uniqueAccesses;
         private final AtomicLong totalAccesses;
+        private final AtomicLong companyInfoRequests;
 
-        public AtomicStatsCounter(long uniqueAccesses, long totalAccesses) {
+        public AtomicStatsCounter(long uniqueAccesses, long totalAccesses, long companyInfoRequests) {
             this.uniqueAccesses = new AtomicLong(uniqueAccesses);
             this.totalAccesses = new AtomicLong(totalAccesses);
+            this.companyInfoRequests = new AtomicLong(companyInfoRequests);
         }
 
         public void incrementForFirstAccess() {
@@ -57,8 +78,21 @@ public class StatsService {
             return uniqueAccesses.longValue();
         }
 
+        public long incrementCompanyInfoRequests() {
+            return companyInfoRequests.incrementAndGet();
+        }
+
+        public long incrementCompanyInfoRequestsBy(long delta) {
+            return companyInfoRequests.addAndGet(delta);
+        }
+
         public long getTotalAccesses() {
             return totalAccesses.longValue();
         }
+
+        public long getTotalCompanyInfoRequests() {
+            return companyInfoRequests.longValue();
+        }
+
     }
 }

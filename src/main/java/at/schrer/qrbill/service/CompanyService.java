@@ -50,6 +50,10 @@ public class CompanyService {
                 .toList();
     }
 
+    public long countCompanies() {
+        return companyRepository.count();
+    }
+
     private Optional<String> getContainedUid(String certId) {
         Matcher matcher = AT_UID_PATTERN.matcher(certId);
         if (!matcher.find()) {

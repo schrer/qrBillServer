@@ -6,6 +6,15 @@ import lombok.Getter;
 @Builder
 @Getter
 public class StatsModel {
-    long uniqueAccesses;
-    long totalAccesses;
+
+    AccessStats siteAccesses;
+    long cachedCompanies;
+
+    @Getter
+    @Builder
+    public static class AccessStats {
+        long uniqueAccesses;
+        long totalAccesses;
+        long companyInfoRequests;
+    }
 }

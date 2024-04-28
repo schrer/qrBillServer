@@ -41,6 +41,10 @@ public class CompanyRepository {
                 .firstOrNull();
     }
 
+    public long count() {
+        return companyNitriteRepo.size();
+    }
+
     private void initLoad (Resource companyFile) throws IOException {
         List<CompanyData> companies = loadCompanies(companyFile);
         companies.forEach(this::storeCompany);

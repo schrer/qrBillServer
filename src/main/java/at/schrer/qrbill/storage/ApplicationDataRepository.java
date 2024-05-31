@@ -1,5 +1,6 @@
 package at.schrer.qrbill.storage;
 
+import at.schrer.qrbill.data.store.AbstractAppData;
 import at.schrer.qrbill.data.store.StatsData;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +21,7 @@ public class ApplicationDataRepository {
 
     public StatsData getStats() {
 
-        Document document = applicationDataRepo.find(where("type").eq(StatsData.TYPE_STATS)).firstOrNull();
+        Document document = applicationDataRepo.find(where("type").eq(AbstractAppData.TYPE_STATS)).firstOrNull();
         if (document == null) {
             return new StatsData();
         }
@@ -29,7 +30,7 @@ public class ApplicationDataRepository {
 
     public void storeStats(StatsData stats) {
         Document document = mapToDocument(stats);
-        applicationDataRepo.update(where("type").eq(StatsData.TYPE_STATS), document);
+        applicationDataRepo.update(where("type").eq(AbstractAppData.TYPE_STATS), document);
     }
 
     private Document mapToDocument(Object object) {

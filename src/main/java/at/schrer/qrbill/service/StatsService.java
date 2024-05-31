@@ -45,6 +45,10 @@ public class StatsService {
         return counter.getTotalAccesses();
     }
 
+    public long getCompanyInfoRequests() {
+        return counter.getTotalCompanyInfoRequests();
+    }
+
     private void storeStats() {
         StatsData stats = new StatsData(
                 counter.getUniqueAccesses(),

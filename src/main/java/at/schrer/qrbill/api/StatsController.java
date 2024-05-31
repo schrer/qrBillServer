@@ -40,6 +40,7 @@ public class StatsController {
         StatsModel.AccessStats accessStats = StatsModel.AccessStats.builder()
                 .uniqueAccesses(statsService.getUniqueAccesses())
                 .totalAccesses(statsService.getTotalAccesses())
+                .companyInfoRequests(statsService.getCompanyInfoRequests())
                 .build();
 
         return StatsModel.builder()

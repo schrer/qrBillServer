@@ -31,8 +31,7 @@ public class CompanyService {
 
     public Optional<CompanyModel> matchCompany(String certId, boolean useFetch) {
         Optional<String> containedUid = getContainedUid(certId);
-        Optional<CompanyData> company;
-        company = containedUid.map(this::getCompanyByUid)
+        Optional<CompanyData> company = containedUid.map(this::getCompanyByUid)
                 .orElseGet(() -> getCompanyByCertId(certId));
         if (useFetch && company.isEmpty() && containedUid.isPresent()) {
             String uid = containedUid.get();

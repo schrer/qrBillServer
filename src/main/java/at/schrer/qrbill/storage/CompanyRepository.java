@@ -4,6 +4,8 @@ import at.schrer.qrbill.data.store.CompanyData;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.dizitart.no2.repository.ObjectRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
@@ -19,10 +21,12 @@ public class CompanyRepository {
     private static final String FIELD_CERT_IDS = "certIds";
     private static final String FIELD_UIDS = "uids";
 
+    private static final Logger logger = LoggerFactory.getLogger(CompanyRepository.class);
+
     private final ObjectRepository<CompanyData> companyNitriteRepo;
 
     public CompanyRepository(ObjectRepository<CompanyData> companyNitriteRepo,
-                             @Value("classpath:static/companyMappings.json") Resource companyFile) throws IOException {
+                             @Value("${company.mappings.file}") Resource companyFile) throws IOException {
         this.companyNitriteRepo = companyNitriteRepo;
         initLoad(companyFile);
     }
@@ -48,6 +52,7 @@ public class CompanyRepository {
     private void initLoad (Resource companyFile) throws IOException {
         List<CompanyData> companies = loadCompanies(companyFile);
         companies.forEach(this::storeCompany);
+        logger.info("Initialized local storage with {} companies from {}", companies.size(), companyFile.getURI());
     }
 
     private List<CompanyData> loadCompanies(Resource companyFile) throws IOException {
